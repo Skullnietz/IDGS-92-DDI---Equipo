@@ -6,7 +6,7 @@ import {
   Image,
   AspectRatio,
   Button,
-  IconButton,
+  ScrollView,
   Text,
   NativeBaseProvider,
   Center,
@@ -19,6 +19,7 @@ export default class CementerioScreen extends React.Component {
   render() {
     return (
       <NativeBaseProvider>
+        <ScrollView>
         <Box alignItems="center" justifyContent={'center'}>
           <Box
             w={'90%'}
@@ -110,6 +111,7 @@ export default class CementerioScreen extends React.Component {
             </Box>
           </Box>
         </Box>
+        </ScrollView>
       </NativeBaseProvider>
     );
   }
