@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TouchableHighlight} from 'react-native';
 import {
   VStack,
   Input,
@@ -63,20 +63,26 @@ export default class CementerioScreen extends React.Component {
                         source={{
                           uri: 'https://www.mausoleosantaclara.com.mx/Images/demo/logolargo.png',
                         }}
+                        onPress={() => console.log('Imagen')}
                         alt="Mausoleo Santa Clara logo"
                       />
                     </AspectRatio>
                   </Center>
 
                   <Center>
-                    <AspectRatio w="60%" ratio={1}>
-                      <Image
-                        source={{
-                          uri: 'https://store-images.s-microsoft.com/image/apps.3104.14481483800220513.5d6b67d5-bde5-4f6b-9e61-27c8013e2ec6.9c60dd5e-6a52-40e1-af64-12ba12c450db',
-                        }}
-                        alt="QR reader"
-                      />
-                    </AspectRatio>
+                    <TouchableHighlight
+                      onPress={() =>
+                        this.props.navigation.navigate('Escanear QR')
+                      }>
+                      <AspectRatio w="60%" ratio={1}>
+                        <Image
+                          source={{
+                            uri: 'https://store-images.s-microsoft.com/image/apps.3104.14481483800220513.5d6b67d5-bde5-4f6b-9e61-27c8013e2ec6.9c60dd5e-6a52-40e1-af64-12ba12c450db',
+                          }}
+                          alt="QR reader"
+                        />
+                      </AspectRatio>
+                    </TouchableHighlight>
                     <Text>O</Text>
                     <Input
                       alignItems="center"

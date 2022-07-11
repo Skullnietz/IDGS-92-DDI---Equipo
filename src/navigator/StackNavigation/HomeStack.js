@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import HomeScreen from '../ScreenStack/HomeScreen.js';
+import HomeScreen from '../ScreenStack/HomeScreen';
 import DifuntosStack from './DifuntosStack.js';
 import Icon from 'react-native-vector-icons/Ionicons';
 import OtherIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,13 +33,7 @@ const HomeStack = () => {
         tabBarInactiveTintColor: '#000',
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen
-        name="Condolencias"
-        component={DifuntosStack}
-        /*options={({route}) => ({
-          tabBarVisible: this.getTabBarVisibility(route),
-        })}*/
-      />
+      <Tab.Screen name="Condolencias" component={DifuntosStack} />
     </Tab.Navigator>
   );
 };

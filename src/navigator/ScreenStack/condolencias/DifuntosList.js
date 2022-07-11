@@ -10,6 +10,12 @@ import {
 } from 'native-base';
 
 export default class DifuntosList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: props.url,
+    };
+  }
   render() {
     return (
       <NativeBaseProvider>
@@ -66,8 +72,9 @@ export default class DifuntosList extends React.Component {
               <Button
                 w={'90%'}
                 style={{backgroundColor: '#FAFF00'}}
-                onPress={() =>
-                  this.props.navigation.navigate('CondolenciaScreen')
+                onPress={
+                  () => console.log(this.state.url)
+                  //this.props.navigation.navigate('CondolenciaScreen')
                 }>
                 <Text m={(1, -1)}>Enviar condolencia</Text>
               </Button>
