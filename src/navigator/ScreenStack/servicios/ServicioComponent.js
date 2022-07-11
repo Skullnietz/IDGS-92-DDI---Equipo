@@ -16,7 +16,7 @@ import {
     Link,
   } from 'native-base';
 
-export default function ProductoComponent(props){
+export default function ServicioComponent(props){
     function ButtonSelector(){
         if( props.categoria == 'PRODUCTOS'){
             return (
