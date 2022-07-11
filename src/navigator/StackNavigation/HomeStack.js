@@ -4,8 +4,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
+
+// * Componentes
 import HomeScreen from '../ScreenStack/HomeScreen.js';
 import DifuntosStack from './DifuntosStack.js';
+import CatalogoStack from './CatalogoStack.js';
+
+// * Iconos
 import Icon from 'react-native-vector-icons/Ionicons';
 import OtherIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -24,6 +29,10 @@ const HomeStack = () => {
             iconName = focused ? 'home' : 'home';
             return <Icon name={iconName} color={color} size={size} />;
           }
+          if (route.name === 'Catalogo') {
+            iconName = focused ? 'book' : 'book';
+            return <Icon name={iconName} color={color} size={size} />;
+          }
           if (route.name === 'Condolencias') {
             iconName = focused ? 'church' : 'church';
             return <OtherIcon name={iconName} color={color} size={size} />;
@@ -33,6 +42,7 @@ const HomeStack = () => {
         tabBarInactiveTintColor: '#000',
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Catalogo" component={CatalogoStack}/>
       <Tab.Screen
         name="Condolencias"
         component={DifuntosStack}
