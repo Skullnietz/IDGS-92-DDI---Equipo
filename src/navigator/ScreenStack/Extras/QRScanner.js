@@ -26,16 +26,26 @@ export default class ScanScreen extends Component {
     };
   }
   onSuccess = async e => {
-    let url =
-      e.data.substring(0, 37) + 'App/' + e.data.substring(37, e.data.lenght);
-    const response = await fetch(url)
-      .then(response => response.json())
-      .catch(e => console.log(e));
-    this.setState({data: await response});
-    console.log(JSON.stringify(this.state.data));
-    this.props.navigation.navigate('DifuntosList', {
-      info: JSON.stringify(this.state.data),
-    });
+    console.log(e.data);
+    if (e.data == 'https://www.mausoleosantaclara.com.mx') {
+      this.props.navigation.navigate('Cementerio virtual');
+      Linking.openURL(e.data);
+      return;
+    }
+    if (e.data.substring(0, 36) == 'http://www.mausoleosantaclara.com.mx') {
+      let url =
+        e.data.substring(0, 37) + 'App/' + e.data.substring(37, e.data.lenght);
+      const response = await fetch(url)
+        .then(response => response.json())
+        .catch(e => console.log(e));
+      this.setState({data: await response});
+      //console.log(JSON.stringify(this.state.data));
+      this.props.navigation.navigate('DifuntosList', {
+        info: JSON.stringify(this.state.data),
+      });
+    } else {
+      // * Falta poner una alerta si el QR no es del mausoleo
+    }
   };
 
   render() {
