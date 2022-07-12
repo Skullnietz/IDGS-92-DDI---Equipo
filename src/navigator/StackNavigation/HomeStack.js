@@ -4,13 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-<<<<<<< HEAD
-import HomeScreen from '../ScreenStack/HomeScreen';
-=======
-
 // * Componentes
 import HomeScreen from '../ScreenStack/HomeScreen.js';
->>>>>>> a2fc299bb3fe8c51d63a42ee96ffea85481a7552
 import DifuntosStack from './DifuntosStack.js';
 import CatalogoStack from './CatalogoStack.js';
 import ServiciosStack from './ServiciosStack.js';
@@ -51,19 +46,21 @@ const HomeStack = () => {
         tabBarInactiveTintColor: '#000',
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
-<<<<<<< HEAD
-      <Tab.Screen name="Condolencias" component={DifuntosStack} />
-=======
-      <Tab.Screen name="Catalogo" component={CatalogoStack}/>
-      <Tab.Screen name="Servicios" component={ServiciosStack}/>
+      <Tab.Screen
+        name="Catalogo"
+        component={CatalogoStack}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Servicios"
+        component={ServiciosStack}
+        options={{headerShown: false}}
+      />
       <Tab.Screen
         name="Condolencias"
         component={DifuntosStack}
-        /*options={({route}) => ({
-          tabBarVisible: this.getTabBarVisibility(route),
-        })}*/
+        options={{headerShown: false}}
       />
->>>>>>> a2fc299bb3fe8c51d63a42ee96ffea85481a7552
     </Tab.Navigator>
   );
 };

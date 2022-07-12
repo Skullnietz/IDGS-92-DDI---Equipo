@@ -14,9 +14,12 @@ export default function DifuntosStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Cementerio virtual" component={CementerioScreen} />
-      <Stack.Screen name="DifuntosList">
-        {props => <DifuntosList {...props} />}
-      </Stack.Screen>
+      <Stack.Screen
+        name="DifuntosList"
+        component={DifuntosList}
+        info={''}
+        options={{title: 'Difuntos'}}
+      />
       <Stack.Screen name="CondolenciaScreen" component={CondolenciaScreen} />
       <Stack.Screen
         name="AddCondolenciaScreen"

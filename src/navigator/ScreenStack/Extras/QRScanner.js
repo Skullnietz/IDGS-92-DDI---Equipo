@@ -26,11 +26,16 @@ export default class ScanScreen extends Component {
     };
   }
   onSuccess = async e => {
-    const response = await fetch(
-      'https://www.mausoleosantaclara.com.mx/api/nichosfiltro/A_1',
-    ).then(response => response.json());
+    let url =
+      e.data.substring(0, 37) + 'App/' + e.data.substring(37, e.data.lenght);
+    const response = await fetch(url)
+      .then(response => response.json())
+      .catch(e => console.log(e));
     this.setState({data: await response});
-    console.log(this.state.data);
+    console.log(JSON.stringify(this.state.data));
+    this.props.navigation.navigate('DifuntosList', {
+      info: JSON.stringify(this.state.data),
+    });
   };
 
   render() {
@@ -71,12 +76,7 @@ export default class ScanScreen extends Component {
           <Button
             w={'90%'}
             style={{backgroundColor: '#FAFF00'}}
-            onPress={() =>
-              //console.log(this.state.url)
-              this.props.navigation.navigate('DifuntosList', {
-                url: this.state.url,
-              })
-            }>
+            onPress={() => console.log(this.state.url)}>
             <Text m={(1, -1)}>Buscar</Text>
           </Button>
         </Center>
