@@ -37,6 +37,7 @@ export default class CementerioScreen extends React.Component {
       this.props.navigation.navigate('DifuntosList', {
         info: JSON.stringify(this.state.data),
       });
+      console.log(response);
     }
   }
 

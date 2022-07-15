@@ -13,6 +13,7 @@ import {
 export default function DifuntoComponent(props) {
   const fechaNacimiento = new Date(props.fechaNacimiento);
   const fechaDefuncion = new Date(props.fechaDefuncion);
+  console.log(props.condolencias);
   return (
     <Box
       width={'100%'}
@@ -81,7 +82,26 @@ export default function DifuntoComponent(props) {
         <Button
           w={'90%'}
           style={{backgroundColor: '#FAFF00'}}
-          onPress={() => props.navigation.navigate('CondolenciaScreen')}>
+          onPress={() =>
+            props.navigation.navigate('CondolenciaScreen', {
+              id: props.id,
+              nombre: props.nombre,
+              familia: props.familia,
+              fecha:
+                fechaNacimiento.getDay() +
+                '/' +
+                fechaNacimiento.getMonth() +
+                '/' +
+                fechaNacimiento.getFullYear() +
+                ' - ' +
+                fechaDefuncion.getDay() +
+                '/' +
+                fechaDefuncion.getMonth() +
+                '/' +
+                fechaDefuncion.getFullYear(),
+              condolencias: props.condolencias,
+            })
+          }>
           <Text m={(1, -1)}>Enviar condolencia</Text>
         </Button>
       </Stack>
