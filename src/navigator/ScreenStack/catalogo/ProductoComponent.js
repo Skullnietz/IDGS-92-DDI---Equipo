@@ -24,7 +24,7 @@ export default function ProductoComponent(props){
                 bgColor={'black'}
                 style={{position: 'relative', right:'-15%'}}
                 >
-                    Solicitar
+                    Solicitar <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} />
                 </Button>
             );
         }

@@ -7,6 +7,7 @@ import {
     Image,
     Stack,
     Text,
+    State,
     NativeBaseProvider,
     Button,
     Center,
@@ -30,12 +31,17 @@ export default function ServicioComponent(props){
         }
         if( props.categoria == 'SERVICIOS'){
             return (
-                <Link w={'15%'} 
-                    direction="row" 
-                    href="https://api.whatsapp.com/send?phone=+527228974086&text=Hola"
-                >
-                    <Icon name ="logo-whatsapp" size={25} color="green" style={{position: 'relative', right:'-150%'}}/>
-                </Link>
+                <Box alignItems="center">
+      
+      <Link  mt="5" right="-30%">
+        <Box px="3" py="2" bg="green.600" rounded="sm" _text={{
+        color: "white",
+        fontWeight: "medium"
+      }}>
+          Solicitar <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} />
+        </Box>
+      </Link>
+    </Box>
             );
         }
     }
@@ -57,7 +63,7 @@ export default function ServicioComponent(props){
                             uri: props.image
                         }} alt="image" />
                         </AspectRatio>
-                        <Center bg= {props.categoria == "SERVICIOS" ? "violet.400": 'gray.500'}  _dark={{
+                        <Center bg= {props.categoria == "SERVICIOS" ? "green.400": 'gray.500'}  _dark={{
                         bg: "violet.400"
                         }} _text={{
                         color: "warmGray.50",
