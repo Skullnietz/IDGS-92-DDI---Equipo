@@ -2,33 +2,45 @@ import React from 'react';
 
 import ProductoComponent from './ProductoComponent';
 
-import {
-  Box,
-  AspectRatio,
-  Image,
-  Stack,
-  Text,
-  NativeBaseProvider,
-  ScrollView,
-  Center,
-  HStack,
-  Heading
-} from 'native-base';
+import {NativeBaseProvider, Center, FlatList, Box} from 'native-base';
 
 export default class CatalogoScreen extends React.Component {
-    render(){
-        return (
-            <NativeBaseProvider>
-                <ScrollView>
-                    <Center>
-                     <ProductoComponent categoria='PRODUCTOS' name="Urna alternativa" image="https://www.mausoleosantaclara.com.mx/Images/Productos/Alternativa.jpeg" description="" />
-                    <ProductoComponent categoria='PRODUCTOS' name="Urna cilindro" image="https://www.mausoleosantaclara.com.mx/Images/Productos/Cilindro.jpeg" description="" />
-                    <ProductoComponent categoria='PRODUCTOS' name="Urna esmeralda" image="https://www.mausoleosantaclara.com.mx/Images/Productos/Esmeralda.jpeg" description="" />
-                    <ProductoComponent categoria='PRODUCTOS' name="Urna infantil" image="https://www.mausoleosantaclara.com.mx/Images/Productos/Infantil.jpeg" description="" />
-                    <ProductoComponent categoria='PRODUCTOS' name="Urna Inox Retablo" image="https://www.mausoleosantaclara.com.mx/Images/Productos/InoxRetablo.jpeg" description="" />
-                    <ProductoComponent categoria='PRODUCTOS' name="Urna Jasper" image="https://www.mausoleosantaclara.com.mx/Images/Productos/Jasper.jpeg" description="" />
-                    </Center>
-                </ScrollView>
-            </NativeBaseProvider>);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      productos: [],
+    };
+    this.data();
+  }
+  async data() {
+    this.setState({
+      productos: await fetch(
+        'https://mausoleosantaclara.com.mx/App/Productos',
+      ).then(response => {
+        return response.json();
+      }),
+    });
+  }
+  render() {
+    return (
+      <NativeBaseProvider>
+        <Center>
+          <Box>
+            <FlatList
+              data={this.state.productos}
+              renderItem={({item}) => (
+                <ProductoComponent
+                  categoria={item.categoria}
+                  name={item.name}
+                  image={item.image}
+                  description=""
+                />
+              )}
+              keyExtractor={item => item.name}
+            />
+          </Box>
+        </Center>
+      </NativeBaseProvider>
+    );
+  }
 }
