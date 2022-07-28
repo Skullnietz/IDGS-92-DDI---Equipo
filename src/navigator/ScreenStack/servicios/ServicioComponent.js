@@ -23,7 +23,7 @@ export default function ServicioComponent(props){
             return (
                 <Button
                 bgColor={'black'}
-                style={{position: 'relative', right:'-15%'}}
+                style={{position: 'relative', right:'-10%' }}
                 >
                     Solicitar
                 </Button>
@@ -31,17 +31,13 @@ export default function ServicioComponent(props){
         }
         if( props.categoria == 'SERVICIOS'){
             return (
-                <Box alignItems="center">
-      
-      <Link  mt="5" right="-30%">
-        <Box px="3" py="2" bg="green.600" rounded="sm" _text={{
-        color: "white",
-        fontWeight: "medium"
-      }}>
-          Solicitar <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} />
-        </Box>
-      </Link>
-    </Box>
+                <Button  size={"xs"}
+                bgColor={'green.700'} pt={1}
+                style={{position: 'relative', right:'-5%'}}
+                ><Flex direction="row"><Text color={"white"} style={{fontSize: 15}} justifyContent={'center'}>Solicitar</Text> <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} /></Flex>
+                    
+                    
+                </Button>
             );
         }
     }
@@ -67,27 +63,26 @@ export default function ServicioComponent(props){
                         bg: "violet.400"
                         }} _text={{
                         color: "warmGray.50",
-                        fontWeight: "700",
+                        fontWeight: "600",
                         fontSize: "xs"
-                        }} position="absolute" bottom="0" px="3" py="1.5">
+                        }} position="absolute" bottom="0" px="3" py="1">
                             {props.categoria}
                         </Center>
                         </Box>
-                        <Stack p="4" space={3}>
-                        <Stack space={2}>
-                            <Heading size="md" ml="-1">
+                    
+                        
+                        <Flex  direction="row">
+                            <Box w={'60%'}>
+                            <Heading   ml={1.5}>
                             {props.name}
                             </Heading>
-                        </Stack>
-                        <Text fontWeight="400">
-                            {props.description}
-                        </Text>
-                        <Flex w={"80%"} direction="row" justifyContent={'center'}>
-                            
-
+                            </Box>    
+                        
                             <ButtonSelector></ButtonSelector>
                         </Flex>
-                        </Stack>
+                        <Text p={3} fontWeight="400" >
+                            {props.description}
+                        </Text>
                     </Box> 
         
     )

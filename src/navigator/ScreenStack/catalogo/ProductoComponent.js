@@ -22,9 +22,10 @@ export default function ProductoComponent(props){
             return (
                 <Button
                 bgColor={'black'}
-                style={{position: 'relative', right:'-15%'}}
-                >
-                    Solicitar <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} />
+                style={{position: 'relative', right:'-40%'}}
+                ><Flex direction="row"><Text color={"white"} style={{fontSize: 15}} justifyContent={'center'}>Solicitar</Text> <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} /></Flex>
+                    
+                    
                 </Button>
             );
         }
@@ -52,7 +53,7 @@ export default function ProductoComponent(props){
                     backgroundColor: "gray.50"
                     }}>
                         <Box>
-                        <AspectRatio w="100%" ratio={16 / 9}>
+                        <AspectRatio w="100%" ratio={1/1}>
                             <Image source={{
                             uri: props.image
                         }} alt="image" />
@@ -67,21 +68,18 @@ export default function ProductoComponent(props){
                             {props.categoria}
                         </Center>
                         </Box>
-                        <Stack p="4" space={3}>
+                        <Flex p="4" direction='row'>
                         <Stack space={2}>
                             <Heading size="md" ml="-1">
                             {props.name}
                             </Heading>
                         </Stack>
-                        <Text fontWeight="400">
-                            {props.description}
-                        </Text>
-                        <Flex w={"80%"} direction="row" justifyContent={'center'}>
+                        <Flex direction="row" justifyContent={'center'}>
                             
 
                             <ButtonSelector></ButtonSelector>
                         </Flex>
-                        </Stack>
+                        </Flex>
                     </Box> 
         
     )
