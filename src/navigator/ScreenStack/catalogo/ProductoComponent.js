@@ -23,9 +23,10 @@ export default function ProductoComponent(props){
                 <Button
                 bgColor={'black'}
                 style={{position: 'relative', right:'-40%'}}
-                ><Flex direction="row"><Text color={"white"} style={{fontSize: 15}} justifyContent={'center'}>Solicitar</Text> <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} /></Flex>
-                    
-                    
+                >
+                    <Flex direction="row">
+                        <Text color={"white"} style={{fontSize: 15}} justifyContent={'center'}>Solicitar</Text> 
+                        <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} /></Flex>
                 </Button>
             );
         }
