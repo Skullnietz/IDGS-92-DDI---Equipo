@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { Linking } from 'react-native';
+
 import {
   Box,
   AspectRatio,
@@ -20,11 +22,19 @@ export default function ProductoComponent(props) {
   function ButtonSelector() {
     if (props.categoria == 'PRODUCTOS') {
       return (
-        <Button bgColor={'black'} style={{position: 'relative', right: '-5%'}}>
+        <Button 
+          mt={"1"}
+          mb={"1"}
+          p={'2'}
+          bgColor={'#948307'} 
+          style={{position: 'relative', right: '-5%'}} 
+          onPress={()=>{Linking.openURL("https://api.whatsapp.com/send?phone=+527228974086&text=Solicitar informacion de");}}>
           <Flex direction="row">
             <Text
+            mt={'0.5'}
               color={'white'}
-              style={{fontSize: 15}}
+              fontWeight={600}
+              fontSize="md"
               justifyContent={'center'}>
               Solicitar
             </Text>{' '}
@@ -84,7 +94,7 @@ export default function ProductoComponent(props) {
           />
         </AspectRatio>
         <Center
-          bg={props.categoria == 'SERVICIOS' ? 'violet.400' : 'gray.500'}
+          bg={props.categoria == 'SERVICIOS' ? 'yellow.500' : 'yellow.500'}
           _dark={{
             bg: 'violet.400',
           }}
@@ -102,7 +112,7 @@ export default function ProductoComponent(props) {
       </Box>
 
       <Flex direction="row">
-        <Box w={'60%'}>
+        <Box w={'60%'} mt={'3'}>
           <Heading ml={1.5}>{props.name}</Heading>
         </Box>
 

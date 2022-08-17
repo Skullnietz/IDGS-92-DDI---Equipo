@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { Linking } from 'react-native';
+
 import {
     Box,
     AspectRatio,
@@ -31,10 +33,23 @@ export default function ServicioComponent(props){
         }
         if( props.categoria == 'SERVICIOS'){
             return (
-                <Button  size={"xs"}
-                bgColor={'green.700'} pt={1}
+                <Button  
+                mt={'1'}
+                size={"xs"}
+                bgColor={'#948307'} pt={1}
                 style={{position: 'relative', right:'-5%'}}
-                ><Flex direction="row"><Text color={"white"} style={{fontSize: 15}} justifyContent={'center'}>Solicitar</Text> <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} /></Flex>
+                onPress={()=>{Linking.openURL("https://api.whatsapp.com/send?phone=+527228974086&text=Solicitar informacion de ");}}>
+                    <Flex direction="row">
+                        <Text 
+                            mt={'1'}
+                            color={"white"} 
+                            fontWeight={600}
+                            fontSize="md" 
+                            justifyContent={'center'}>
+                            Solicitar
+                        </Text> 
+                        <Icon name ="logo-whatsapp" size={25} color="white" style={{ right:'-25%'}} />
+                    </Flex>
                     
                     
                 </Button>
@@ -59,7 +74,7 @@ export default function ServicioComponent(props){
                             uri: props.image
                         }} alt="image" />
                         </AspectRatio>
-                        <Center bg= {props.categoria == "SERVICIOS" ? "green.400": 'gray.500'}  _dark={{
+                        <Center bg= {props.categoria == "SERVICIOS" ? 'yellow.500' : 'yellow.500'}  _dark={{
                         bg: "violet.400"
                         }} _text={{
                         color: "warmGray.50",
@@ -72,7 +87,7 @@ export default function ServicioComponent(props){
                     
                         
                         <Flex  direction="row">
-                            <Box w={'60%'}>
+                            <Box w={'60%'} mt ={'3'}>
                             <Heading   ml={1.5}>
                             {props.name}
                             </Heading>
